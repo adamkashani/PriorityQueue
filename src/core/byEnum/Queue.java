@@ -13,7 +13,6 @@ public class Queue {
 
 		switch (priority) {
 		case HIGH:
-			System.out.println("from HIGH");
 			if (highHead == null) {
 				highHead = new Node(object);
 				return;
@@ -26,7 +25,6 @@ public class Queue {
 			}
 			return;
 		case MEDIUM:
-			System.out.println("from MEDIUM");
 			if (mediumHead == null) {
 				mediumHead = new Node(object);
 			} else if (mediumHead.getNext() == null) {
@@ -38,7 +36,6 @@ public class Queue {
 			}
 			return;
 		case LOW:
-			System.out.println("from LOW");
 			if (lowHead == null) {
 				lowHead = new Node(object);
 			} else if (lowHead.getNext() == null) {
