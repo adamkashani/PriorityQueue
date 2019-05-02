@@ -2,9 +2,9 @@ package core.byEnum;
 
 public class Queue {
 
-	private Node high;
-	private Node medium;
-	private Node low;
+	private Node highHead;
+	private Node mediumHead;
+	private Node lowHead;
 	private Node highLast;
 	private Node mediumLast;
 	private Node lowLast;
@@ -14,12 +14,12 @@ public class Queue {
 		switch (priority) {
 		case HIGH:
 			System.out.println("from HIGH");
-			if (high == null) {
-				high = new Node(object);
+			if (highHead == null) {
+				highHead = new Node(object);
 				return;
-			} else if (high.getNext() == null) {
+			} else if (highHead.getNext() == null) {
 				highLast = new Node(object);
-				high.setNext(highLast);
+				highHead.setNext(highLast);
 			} else {
 				highLast.setNext(new Node(object));
 				highLast = highLast.getNext();
@@ -27,11 +27,11 @@ public class Queue {
 			return;
 		case MEDIUM:
 			System.out.println("from MEDIUM");
-			if (medium == null) {
-				medium = new Node(object);
-			} else if (medium.getNext() == null) {
+			if (mediumHead == null) {
+				mediumHead = new Node(object);
+			} else if (mediumHead.getNext() == null) {
 				mediumLast = new Node(object);
-				medium.setNext(mediumLast);
+				mediumHead.setNext(mediumLast);
 			} else {
 				mediumLast.setNext(new Node(object));
 				mediumLast = mediumLast.getNext();
@@ -39,11 +39,11 @@ public class Queue {
 			return;
 		case LOW:
 			System.out.println("from LOW");
-			if (low == null) {
-				low = new Node(object);
-			} else if (low.getNext() == null) {
+			if (lowHead == null) {
+				lowHead = new Node(object);
+			} else if (lowHead.getNext() == null) {
 				lowLast = new Node(object);
-				low.setNext(lowLast);
+				lowHead.setNext(lowLast);
 			} else {
 				lowLast.setNext(new Node(object));
 				lowLast = lowLast.getNext();
@@ -56,15 +56,15 @@ public class Queue {
 
 	public Object pop() {
 		Node temp = null;
-		if (high != null) {
-			temp = high;
-			high = high.getNext();
-		} else if (medium != null) {
-			temp = medium;
-			medium = medium.getNext();
-		} else if (low != null) {
-			temp = low;
-			low = low.getNext();
+		if (highHead != null) {
+			temp = highHead;
+			highHead = highHead.getNext();
+		} else if (mediumHead != null) {
+			temp = mediumHead;
+			mediumHead = mediumHead.getNext();
+		} else if (lowHead != null) {
+			temp = lowHead;
+			lowHead = lowHead.getNext();
 		}
 
 		if (temp != null) {

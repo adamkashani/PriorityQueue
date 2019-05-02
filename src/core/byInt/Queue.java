@@ -32,15 +32,12 @@ public class Queue {
 			Integer maxPriority = priorityQueue.peek();
 			LinkedList<Object> maxPriorityList = map.get(maxPriority);
 			if (maxPriorityList == null) {
-				priorityQueue.poll();
+				return object;
 			} else if (maxPriorityList.isEmpty()) {
 				priorityQueue.remove();
 				map.remove(maxPriority);
 			} else {
 				return maxPriorityList.removeFirst();
-			}
-			if (priorityQueue.isEmpty()) {
-				return object;
 			}
 		}
 		return object;
